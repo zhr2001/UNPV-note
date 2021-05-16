@@ -37,8 +37,17 @@ char *inet_ntoa(struct in_addr_t inaddr);
 int inet_pton(int family, char *strptr, void *addrptr); 
 
 const char *inet_ntop(int family, const void *addrptr, char *strptr, size_t len);
+
+
+
+#include "unp.h"
+
+char *sock_ntop(const struct sockaddr *sockaddr, socklen_t addrlen);
 ```
 
 - len 参数防止内存溢出， 如果 len 太小返回空指针
 - inet_pton, inet_ntop 函数都是针对通用套接字， ipv4/ipv6 都可以
+- sock_ntop 函数查看结构体内部，然后以适当函数返回该地址的表达格式， 该函数不可重入且非线程安全
+
+3.readn, writen, readline函数
 
