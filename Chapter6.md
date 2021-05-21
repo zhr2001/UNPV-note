@@ -69,3 +69,21 @@
   - SHUT_WR 关闭连接的写这一半
   - SHUT_RDWR 全部关闭
 
+### 9.pselect
+
+```c
+#include <sys/select.h>
+#include <signal.h>
+#include <time.h>
+
+int pselect(int maxfdp1, fd_set *readset, fd_set *writeset, fd_set *exceptset, const struct timespec *timeout, const sigset_t *sigmask);
+```
+
+### 10.poll函数
+
+```c
+#include <poll.h>
+
+int poll(struct pollfd *fdarray, unsigned long nfds, int timeout);
+```
+
